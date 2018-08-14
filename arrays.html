@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Test</title>
+</head>
+<body>
+  <div class="articles-list"></div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+  $(document).ready(function() {
+    var arr1 = [8, 24, 3, 20, 1, 17];
+    var arr2 = [7, 21, 3, 42, 3, 7];
+    evaluateArray(arr1);
+    evaluateArray(arr2);
+  });
+
+
+  function evaluateArray(arr) {
+    // set items for operation
+    var item1 = null;
+    var item2 = null;
+    // filter array to compare if there are repited elemnts
+    var filtered = arr.filter((v, i) => arr.indexOf(v) !== i)
+    var checks = new Set(filtered);
+    // check if there are repited elemnts
+    if (checks.length > 0) {
+      item1 = checks[1];
+      item2 = checks[0];
+    } else {
+      var sorted = arr.sort(sortNumber);
+      item1 = sorted[1];
+      item2 = sorted[0];
+    }
+    // operation
+    var result = item1 - item2;
+    alert('result: '+result);
+  }
+
+  function sortNumber(a,b) {
+    return a - b;
+  }
+
+
+// Notes:
+  
+// Don't know why is not working on this tester. But i uploaded my project on github for further review; there is working perfectly acoording requested tasks. Url "https://www.example.com/articles" seems not to be working.
+//  https://github.com/idemshall/arrays.git
+//  Sincerilly,
+
+//  Alejandro Bermudez
+</script>
+
+</html>
